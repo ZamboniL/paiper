@@ -29,13 +29,13 @@ export default function Header() {
   }, []);
 
   const fixedClass =
-    'md:fixed top-4 left-0 right-0 m-auto z-50 md:shadow-[0_20px_40px_0_rgba(50,50,93,0.20)] md:rounded-lg max-w-7xl';
+    'md:fixed top-4 left-0 right-0 md:m-auto z-50 md:shadow-3xl md:rounded-lg max-w-7xl';
 
   return (
     <header
       className={`${
         fixed ? fixedClass : ''
-      } flex justify-center border-primary-100 md:border-b-[1px] md:py-4`}
+      } flex justify-center border-primary-100 bg-white md:border-b-[1px] md:py-4`}
     >
       <div className="flex w-full max-w-7xl flex-col justify-between md:flex-row md:items-center md:px-4">
         <div

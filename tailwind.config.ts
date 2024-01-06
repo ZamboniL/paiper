@@ -8,10 +8,10 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      boxShadow: {
+        '3xl': '0px 20px 40px 0px rgba(50, 50, 93, 0.20)'
+      },
       colors: {
-        boxShadow: {
-          '3xl': '0px 20px 40px 0px rgba(50, 50, 93, 0.20)'
-        },
         primary: {
           100: '#E2E2E2',
           200: '#7A8089',
