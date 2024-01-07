@@ -1,24 +1,28 @@
 interface CardProps {
   className?: string;
   Icon?: React.ComponentType<React.SVGProps<SVGSVGElement>>;
-  title: string;
+  tag?: string;
+  title?: string;
   description: string;
 }
 
-export default function Card({ title, description, Icon, className }: CardProps) {
+export default function Card({ title, tag, description, Icon, className }: CardProps) {
   return (
     <div
       className={`flex w-full flex-col rounded-lg border-[1px]
   border-primary-100 bg-primary-50 p-8 ${className}`}
     >
-      <div
-        className="mb-11 flex h-14 w-14 items-center justify-center rounded-lg bg-primary-400
+      {Icon && (
+        <div
+          className="mb-11 flex h-14 w-14 items-center justify-center rounded-lg bg-primary-400
        shadow-[0_0_20px_0_rgba(35,81,255,0.20),_0_0_8px_0_#6EA3FF_inset]"
-      >
-        {Icon && <Icon className="h-8 w-8" />}
-      </div>
+        >
+          <Icon className="h-8 w-8" />
+        </div>
+      )}
+      {tag && <span className="mb-8 text-[40px] font-semibold text-primary-400">{tag}</span>}
       <div>
-        <h3 className="pb-2 text-base font-semibold">{title}</h3>
+        {title && <h3 className="pb-2 text-base font-semibold">{title}</h3>}
         <p className="text-primary-200">{description}</p>
       </div>
     </div>

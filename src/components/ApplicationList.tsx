@@ -8,9 +8,9 @@ import Rocket from './icons/Rocket';
 
 export default function ApplicationList() {
   return (
-    <div className="mx-auto mt-20 flex max-w-5xl flex-col items-center gap-6 px-4">
+    <div className="mx-auto mt-20 flex max-w-[970px] flex-col items-center gap-6 px-4 md:mt-40 md:px-0">
       <Chip Icon={Rocket}>Aplicações</Chip>
-      <h2 className="text-center text-4xl font-semibold md:text-5xl">
+      <h2 className="text-center text-4xl font-semibold md:max-w-4xl md:font-[40px]">
         Alcance um novo nível de excelência no atendimento ao cliente.
       </h2>
       <h3 className="pb-6 text-center text-base text-primary-200">
