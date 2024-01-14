@@ -20,6 +20,10 @@ const config: Config = {
           400: '#2351FF',
           500: '#132053'
         }
+      },
+      backgroundPosition: {
+        'top-2': 'center top 6rem',
+        'top-4': 'center top 12rem'
       }
     }
   },

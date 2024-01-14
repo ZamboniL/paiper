@@ -7,7 +7,7 @@ interface ChipProps {
 export default function Chip({ children, Icon, className, ...props }: ChipProps) {
   return (
     <span
-      className={`rounded-full border-[1px] border-primary-400 px-2 py-1
+      className={`rounded-full border-[1px] border-primary-400 bg-white px-2 py-1
        text-xs font-semibold text-primary-400 ${className}`}
       {...props}
     >

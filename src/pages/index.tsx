@@ -3,7 +3,9 @@ import ApplicationList from 'src/components/ApplicationList';
 import BenefitList from 'src/components/BenefitList';
 import Header from 'src/components/Header';
 import Hero from 'src/components/Hero';
+import Integration from 'src/components/Integration';
 import Partners from 'src/components/Partners';
+import SolutionsList from 'src/components/SolutionsList';
 
 const poppins = Poppins({ weight: ['400', '600'], subsets: ['latin'] });
 
@@ -15,6 +17,8 @@ export default function Home() {
       <Partners />
       <ApplicationList />
       <BenefitList />
+      <SolutionsList />
+      <Integration />
     </main>
   );
 }
