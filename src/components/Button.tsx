@@ -1,18 +1,40 @@
+import Link from 'next/link';
 import React from 'react';
 
 interface ButtonProps {
-  color?: 'primary' | 'secondary';
+  color?: 'light' | 'main' | 'dark';
   className?: string;
+  href?: string;
   onClick?: () => void;
   children: React.ReactNode;
 }
 
-export default function Button({ color, className, onClick, children }: ButtonProps) {
-  const colorClass =
-    color === 'primary' ? 'bg-primary-400 text-primary-300' : 'bg-primary-300 text-primary-400';
+const colorClass: Record<Required<ButtonProps>['color'], string> = {
+  light: 'bg-primary-300 text-primary-400',
+  main: 'bg-primary-400 text-primary-300',
+  dark: 'bg-primary-500 text-white'
+};
+
+export default function Button({
+  color = 'main',
+  className,
+  onClick,
+  href,
+  children
+}: ButtonProps) {
+  if (href) {
+    return (
+      <Link
+        className={`${colorClass[color]} rounded-lg px-5 py-3 font-semibold ${className}`}
+        href={href}
+      >
+        {children}
+      </Link>
+    );
+  }
   return (
     <button
-      className={`${colorClass} rounded-lg px-5 py-3 font-semibold ${className}`}
+      className={`${colorClass[color]} rounded-lg px-5 py-3 font-semibold ${className}`}
       onClick={onClick}
     >
       {children}

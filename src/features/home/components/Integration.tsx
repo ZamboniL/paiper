@@ -23,9 +23,7 @@ export default function Integration() {
           Integramos e transformamos diversas fontes de dados: arquivos, banco de dados,
           webservices, webhooks e muito mais.
         </p>
-        <Button className="text-base" color="primary">
-          Ver todas as integrações
-        </Button>
+        <Button className="text-base">Ver todas as integrações</Button>
       </div>
     </div>
   );

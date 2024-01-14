@@ -81,14 +81,12 @@ export default function Header() {
           } gap-3 md:flex md:items-center`}
         >
           <li>
-            <Button className="w-full md:w-auto" color="secondary">
+            <Button className="w-full md:w-auto" color="light" href="/contato">
               Contato
             </Button>
           </li>
           <li>
-            <Button className="w-full md:w-auto" color="primary">
-              Entrar
-            </Button>
+            <Button className="w-full md:w-auto">Entrar</Button>
           </li>
         </ul>
       </div>
