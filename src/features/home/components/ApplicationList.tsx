@@ -1,15 +1,17 @@
-import Card from './Card';
-import Chip from './Chip';
-import Currency from './icons/Currency';
-import Magnet from './icons/Magnet';
-import Money from './icons/Money';
-import PriceTag from './icons/PriceTag';
-import Rocket from './icons/Rocket';
+import Card from 'components/Card';
+import Chip from 'components/Chip';
+import Currency from 'components/icons/Currency';
+import Magnet from 'components/icons/Magnet';
+import Money from 'components/icons/Money';
+import PriceTag from 'components/icons/PriceTag';
+import Rocket from 'components/icons/Rocket';
 
 export default function ApplicationList() {
   return (
     <div className="mx-auto mt-20 flex max-w-[970px] flex-col items-center gap-6 px-4 md:mt-40 md:px-0">
-      <Chip Icon={Rocket}>Aplicações</Chip>
+      <Chip Icon={Rocket} id="aplicacoes">
+        Aplicações
+      </Chip>
       <h2 className="text-center text-4xl font-semibold md:max-w-4xl md:font-[40px]">
         Alcance um novo nível de excelência no atendimento ao cliente.
       </h2>

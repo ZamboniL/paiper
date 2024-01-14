@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import Button from './Button';
+import Link from 'next/link';
 
 export default function Header() {
   const [open, setOpen] = useState(false);
@@ -42,7 +43,9 @@ export default function Header() {
           className="mb-9 flex w-full items-center justify-between border-b-[1px] p-4
          md:mb-0 md:w-auto md:border-0 md:p-0"
         >
-          <Image width={120} height={38} src="logo.svg" alt="" />
+          <Link href="/">
+            <Image width={120} height={38} src="logo.svg" alt="" />
+          </Link>
           <Image
             width={32}
             height={32}
@@ -60,16 +63,16 @@ export default function Header() {
           } gap-8 md:flex`}
         >
           <li>
-            <a href="">Aplicações</a>
+            <a href="#aplicacoes">Aplicações</a>
           </li>
           <li>
-            <a href="">Benefícios</a>
+            <a href="#beneficios">Benefícios</a>
           </li>
           <li>
-            <a href="">Soluções</a>
+            <a href="#solucoes">Soluções</a>
           </li>
           <li>
-            <a href="">Integrações</a>
+            <Link href="/integracoes">Integrações</Link>
           </li>
         </ul>
         <ul

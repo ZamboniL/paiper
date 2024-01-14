@@ -1,6 +1,6 @@
-import Button from './Button';
-import Chip from './Chip';
-import Code from './icons/Code';
+import Button from 'components/Button';
+import Chip from 'components/Chip';
+import Code from 'components/icons/Code';
 
 export default function Integration() {
   return (

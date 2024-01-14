@@ -1,12 +1,12 @@
-import Card from './Card';
-import Chip from './Chip';
-import Graph from './icons/Graph';
+import Card from 'components/Card';
+import Chip from 'components/Chip';
+import Graph from 'components/icons/Graph';
 
 export default function BenefitList() {
   return (
     <div className="mx-auto mt-20 flex flex-col items-start gap-5 px-4 md:mt-40 md:flex-row md:px-0">
       <div className="flex flex-col gap-6 md:max-w-[470px]">
-        <Chip Icon={Graph} className="w-fit">
+        <Chip Icon={Graph} className="w-fit" id='beneficios'>
           Benefícios
         </Chip>
         <h2 className="pb-6 text-4xl font-semibold md:text-[40px]">

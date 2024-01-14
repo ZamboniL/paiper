@@ -1,15 +1,14 @@
 import { useState } from 'react';
-import Chip from './Chip';
-import Tab from './Tab';
-import CRM from './icons/CRM';
-import Calculator from './icons/Calculator';
-import Diagram from './icons/Diagram';
-import Document from './icons/Document';
-import Lightning from './icons/Lightning';
-import Omni from './icons/Omni';
-import PersonCheck from './icons/PersonCheck';
-import Stars from './icons/Stars';
-import Card from './Card';
+import Chip from '../../../components/Chip';
+import Tab from '../../../components/Tab';
+import CRM from '../../../components/icons/CRM';
+import Calculator from '../../../components/icons/Calculator';
+import Diagram from '../../../components/icons/Diagram';
+import Document from '../../../components/icons/Document';
+import Lightning from '../../../components/icons/Lightning';
+import Omni from '../../../components/icons/Omni';
+import PersonCheck from '../../../components/icons/PersonCheck';
+import Stars from 'components/icons/Stars';
 import DisplayCard from './DisplayCard';
 
 const icons = {
@@ -35,7 +34,7 @@ export default function SolutionsList() {
     md:items-center md:justify-center md:py-40"
     >
       <div className="mb-12 flex flex-col items-center gap-6 md:max-w-3xl">
-        <Chip Icon={Lightning}>Soluções</Chip>
+        <Chip Icon={Lightning} id="solucoes">Soluções</Chip>
         <h2 className="px-4 text-center text-4xl font-semibold text-white">
           Tecnologia que permite estabelecer conexões significativas e fornecer insights inteligente
           com seus clientes.
