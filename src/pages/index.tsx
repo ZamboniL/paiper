@@ -8,7 +8,7 @@ import SolutionsList from '@/home/components/SolutionsList';
 
 export default function HomePage() {
   return (
-    <main className={`flex min-h-full flex-col overflow-x-hidden`}>
+    <main className={`flex min-h-full flex-col overflow-x-clip`}>
       <Hero />
       <Partners />
       <ApplicationList />
