@@ -15,7 +15,7 @@ export default function DisplayCard({
 }: DisplayCardProps) {
   return (
     <div
-      className={`flex w-full flex-col rounded-lg border-[1px] border-white
+      className={`flex w-full max-w-[970px] flex-col rounded-lg border-[1px] border-white
       bg-primary-300/[0.2] p-2 pt-8 md:grid md:grid-cols-2 ${className} md:pt-2`}
     >
       <div>
