@@ -8,7 +8,7 @@ export default function Partners() {
       <h3 className="max-w-3xl text-center text-base">As melhores empresas acreditam na Paiper</h3>
       <div className="max-w-full">
         <Ticker
-        containerWidth={970}
+          containerWidth={970}
           style={{
             maskImage:
               'linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 12.5%, rgb(0, 0, 0) 87.5%, rgba(0, 0, 0, 0) 100%)',
