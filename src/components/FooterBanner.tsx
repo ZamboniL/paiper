@@ -18,7 +18,7 @@ function BannerItem({
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
     >
-      <span className="text-nowrap text-4xl font-semibold text-white md:text-5xl">
+      <span className="whitespace-nowrap text-nowrap text-4xl font-semibold text-white md:text-5xl">
         Veja o Paiper em ação
       </span>
       <motion.div
@@ -32,10 +32,10 @@ function BannerItem({
   );
 }
 
-export default function FooterBanner() {
+export default function FooterBanner({ transformRange }: { transformRange: [number, number] }) {
   const [hover, setHover] = useState<number | boolean>(false);
   const { scrollYProgress } = useScroll();
-  const translateY = useTransform(scrollYProgress, [0, 1], [700, -200]);
+  const translateY = useTransform(scrollYProgress, [0, 1], transformRange);
 
   const handleHover = (index: number) => () => {
     setHover(index);

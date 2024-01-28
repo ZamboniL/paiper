@@ -15,7 +15,7 @@ export default function HomePage() {
       <BenefitList />
       <SolutionsList />
       <Integration />
-      <FooterBanner />
+      <FooterBanner transformRange={[700, -200]} />
     </main>
   );
 }
