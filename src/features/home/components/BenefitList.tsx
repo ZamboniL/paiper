@@ -8,8 +8,7 @@ export default function BenefitList() {
   const containerRef = useRef<HTMLUListElement>(null);
   const { scrollYProgress } = useScroll({ target: containerRef, offset: ['start center', '50%'] });
   const scale = useTransform(scrollYProgress, [0, 1], ['0%', '100%']);
-  // const scaleSpring = useSpring(scale, { damping: 30, stiffness: 100, restDelta: 0.001 });
-  console.log(scale);
+
   return (
     <div className="relative mx-auto mt-20 flex flex-col items-start gap-5 px-4 md:mt-40 md:flex-row md:px-0">
       <div className="flex flex-col gap-6 md:sticky md:top-28 md:max-w-[470px]">
