@@ -1,6 +1,12 @@
 import Image from 'next/image';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { useRef } from 'react';
 
 export default function Hero() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({ target: containerRef, offset: ['start center', '5%'] });
+  const rotateX = useTransform(scrollYProgress, [0, 1], [18, 0]);
+
   return (
     <div className="relative bg-center px-4 pt-16 md:bg-[url('/hero-background-xl.png')]">
       <h1
@@ -18,8 +24,10 @@ export default function Hero() {
           escala, proporcionando resultados maximizados e transformando a maneira como as empresas
           se comunicam com seus clientes.
         </h2>
-        <div className="relative m-auto w-fit">
-          <Image
+        <div ref={containerRef} className="relative m-auto w-fit">
+          <motion.img
+            drag
+            dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
             height={46}
             width={46}
             src="/icons/check.svg"
@@ -28,7 +36,8 @@ export default function Hero() {
           />
           <picture>
             <source srcSet="/print-xl.png" media="(min-width: 768px)" />
-            <img
+            <motion.img
+              style={{ rotateX, transformPerspective: 1200 }}
               height={270}
               width={360}
               src="/print.png"
@@ -38,7 +47,9 @@ export default function Hero() {
           </picture>
           <picture>
             <source srcSet="/ai-button-xl.png" media="(min-width: 768px)" />
-            <img
+            <motion.img
+              drag
+              dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
               height={32}
               width={112}
               src="/ai-button.png"
@@ -46,7 +57,9 @@ export default function Hero() {
               className="absolute -bottom-6 left-4 w-auto md:-left-24 md:top-1/2 md:h-16"
             />
           </picture>
-          <Image
+          <motion.img
+            drag
+            dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
             height={43}
             width={43}
             src="/icons/graphic.svg"
