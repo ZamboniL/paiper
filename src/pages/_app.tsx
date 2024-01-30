@@ -8,12 +8,10 @@ const poppins = Poppins({ weight: ['400', '600'], subsets: ['latin'] });
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <>
+    <div className={`min-h-full ${poppins.className}`}>
       <Header />
-      <div className={`min-h-full ${poppins.className}`}>
-        <Component {...pageProps} />
-      </div>
+      <Component {...pageProps} />
       <Footer />
-    </>
+    </div>
   );
 }

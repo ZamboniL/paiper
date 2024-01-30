@@ -8,7 +8,7 @@ export default function Hero() {
   const rotateX = useTransform(scrollYProgress, [0, 1], [18, 0]);
 
   return (
-    <div className="relative bg-center px-4 pt-16 md:bg-[url('/hero-background-xl.png')]">
+    <div className="relative bg-center px-4 pt-16 md:bg-[url('/hero-background-xl.png')] md:pt-24">
       <h1
         className="relative z-10 pb-6 text-center text-4xl font-semibold leading-10
       md:mx-auto md:max-w-3xl md:text-5xl"
