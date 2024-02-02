@@ -2,10 +2,10 @@ import { Variants, motion } from 'framer-motion';
 
 const cardVariants: Variants = {
   rest: {
-    background: '#F8F8FA'
+    // background: '#F8F8FA'
   },
   hover: {
-    background: '#2351FF',
+    // background: '#2351FF',
     color: 'white'
   }
 };
@@ -19,9 +19,9 @@ const iconBoxVariants: Variants = {
     fill: '#ffffff'
   },
   hover: {
-    scale: 1,
+    scale: 0.8,
     background: '#ffffff',
-    boxShadow: 'none',
+    boxShadow: '0px',
     stroke: '#2351FF',
     fill: '#2351FF'
   }
@@ -54,6 +54,19 @@ const textVariants: Variants = {
   }
 };
 
+const circleVariants: Variants = {
+  rest: {
+    opacity: 0,
+    bottom: -250,
+    right: -275
+  },
+  hover: {
+    bottom: -200,
+    right: -200,
+    opacity: [0.1, 0.7, 0.1]
+  }
+};
+
 interface CardProps {
   className?: string;
   Icon?: React.ComponentType<React.SVGProps<SVGSVGElement>>;
@@ -70,19 +83,47 @@ export default function Card({ title, tag, description, Icon, className }: CardP
       animate="rest"
       variants={cardVariants}
       transition={{
-        duration: 0.3,
-        ease: 'easeInOut'
+        duration: 0.325,
+        ease: 'easeOut'
       }}
-      className={`flex w-full flex-col justify-between rounded-lg border-[1px]
-  border-primary-100 bg-primary-50 p-8 ${className}`}
+      className={`relative flex w-full flex-col justify-between overflow-hidden rounded-lg border-[1px]
+  border-primary-100 bg-primary-50 p-8 hover:bg-[linear-gradient(#2351FF_-22%,_#132053_120%)] ${className}`}
     >
       {Icon && (
-        <motion.div
-          variants={iconBoxVariants}
-          className="mb-11 flex h-14 w-14 items-center justify-center rounded-lg"
-        >
-          <Icon className="h-8 w-8" />
-        </motion.div>
+        <div className="relative">
+          <motion.div
+            variants={{
+              rest: { scale: 1, opacity: 1 },
+              hover: { scale: 0.7, opacity: [0.1, 0.9, 0.1] }
+            }}
+            transition={{ repeat: 0, ease: 'easeOut', duration: 0.325 }}
+            className="absolute -left-5 -top-5 flex h-24 w-24 items-center justify-center rounded-lg border-[1px] border-white"
+          />
+          <motion.div
+            variants={{
+              rest: { scale: 1, opacity: 0 },
+              hover: { scale: 0.7, opacity: [0.1, 0.325, 0.1] }
+            }}
+            transition={{ repeat: 0, ease: 'easeOut', duration: 0.325 }}
+            className="absolute -left-9 -top-9 flex h-32 w-32 items-center justify-center rounded-lg border-[1px] border-white"
+          />
+          <motion.div
+            variants={{
+              rest: { scale: 1, opacity: 0 },
+              hover: { scale: 0.7, opacity: [0.1, 0.2, 0.1] }
+            }}
+            transition={{ repeat: 0, ease: 'easeOut', duration: 0.325 }}
+            className="absolute -left-11 -top-11 flex h-[152px] w-[152px] items-center justify-center rounded-lg border-[1px] border-white"
+          />
+          <motion.div
+            variants={iconBoxVariants}
+            transition={{ repeat: 0, ease: 'easeOut', duration: 0.325 }}
+
+            className="mb-11 flex h-14 w-14 items-center justify-center rounded-lg"
+          >
+            <Icon className="h-8 w-8" />
+          </motion.div>
+        </div>
       )}
       {tag && (
         <motion.span variants={tagVariants} className="mb-8 text-[40px] font-semibold">
@@ -102,6 +143,21 @@ export default function Card({ title, tag, description, Icon, className }: CardP
         )}
         <motion.p variants={textVariants}>{description}</motion.p>
       </div>
+      <motion.div
+        variants={circleVariants}
+        transition={{ repeat: 0, ease: 'easeOut', duration: 0.325 }}
+        className="absolute h-[261px] w-[261px] rounded-full bg-white"
+      />
+      <motion.div
+        variants={circleVariants}
+        transition={{ repeat: 0, ease: 'easeOut', duration: 0.325 }}
+        className="absolute h-[301px] w-[301px] rounded-full bg-white"
+      />
+      <motion.div
+        variants={circleVariants}
+        transition={{ repeat: 0, ease: 'easeOut', duration: 0.325 }}
+        className="absolute h-[360px] w-[360px] rounded-full bg-white"
+      />
     </motion.div>
   );
 }
