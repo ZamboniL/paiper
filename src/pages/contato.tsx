@@ -22,7 +22,7 @@ export default function IntegrationsPage() {
             <Input placeholder="Telefone" />
             <Button color="dark">Enviar mensagem</Button>
           </form>
-          <div className="flex flex-col gap-8 ">
+          <div className="flex flex-col gap-8 md:gap-16 ">
             <div className="flex flex-col *:text-white">
               <label className="text-base">E-mail</label>
               <span className="text-2xl font-semibold">contato@paiper.com.br</span>

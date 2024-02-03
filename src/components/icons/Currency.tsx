@@ -1,6 +1,18 @@
-export default function Currency(props: React.SVGProps<SVGSVGElement>) {
+import { forwardRef } from 'react';
+
+const Currency = forwardRef(function Currency(
+  props: React.SVGProps<SVGSVGElement>,
+  ref: React.ForwardedRef<SVGSVGElement>
+) {
   return (
-    <svg {...props} width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+    <svg
+      {...props}
+      ref={ref}
+      width="32"
+      height="32"
+      viewBox="0 0 32 32"
+      xmlns="http://www.w3.org/2000/svg"
+    >
       <g id="&#195;&#141;CONE">
         <path
           id="Vector"
@@ -10,4 +22,6 @@ export default function Currency(props: React.SVGProps<SVGSVGElement>) {
       </g>
     </svg>
   );
-}
+});
+
+export default Currency;

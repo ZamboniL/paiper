@@ -65,13 +65,13 @@ export default function Header() {
             } gap-8 md:flex`}
           >
             <li>
-              <a href="#aplicacoes">Aplicações</a>
+              <Link href="/#aplicacoes">Aplicações</Link>
             </li>
             <li>
-              <a href="#beneficios">Benefícios</a>
+              <Link href="/#beneficios">Benefícios</Link>
             </li>
             <li>
-              <a href="#solucoes">Soluções</a>
+              <Link href="/#solucoes">Soluções</Link>
             </li>
             <li>
               <Link href="/integracoes">Integrações</Link>

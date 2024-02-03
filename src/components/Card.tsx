@@ -1,29 +1,16 @@
 import { Variants, motion } from 'framer-motion';
-
-const cardVariants: Variants = {
-  rest: {
-    // background: '#F8F8FA'
-  },
-  hover: {
-    // background: '#2351FF',
-    color: 'white'
-  }
-};
+import { RefAttributes } from 'react';
 
 const iconBoxVariants: Variants = {
   rest: {
-    scale: 1.2,
-    background: '#2351FF',
-    boxShadow: '0px 0px 20px rgba(35, 81, 255, 0.2), 0px 0px 8px #6EA3FF inset',
-    stroke: '#ffffff',
-    fill: '#ffffff'
+    width: '64px',
+    height: '64px',
+    background: '#2351FF'
   },
   hover: {
-    scale: 0.8,
-    background: '#ffffff',
-    boxShadow: '0px',
-    stroke: '#2351FF',
-    fill: '#2351FF'
+    width: '52px',
+    height: '52px',
+    background: '#ffffff'
   }
 };
 
@@ -67,63 +54,81 @@ const circleVariants: Variants = {
   }
 };
 
+const iconVariants = {
+  rest: { height: '44px', width: '44px', stroke: '#ffffff', fill: '#ffffff' },
+  hover: { height: '32px', width: '32x', stroke: '#2351FF', fill: '#2351FF' }
+};
+
+const cardHoverClass = `hover:shadow-card hover:border-0
+hover:bg-[linear-gradient(180deg,_#4C80FF_-11.49%,_#2351FF_51.18%,_#1D3DB6_115.11%)]`;
+
+const squareClass = `absolute flex origin-center items-center justify-center 
+rounded-lg border-[1px]`;
+
 interface CardProps {
   className?: string;
-  Icon?: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+  Icon?: React.ForwardRefExoticComponent<
+    Omit<React.SVGProps<SVGSVGElement>, 'ref'> & RefAttributes<SVGSVGElement>
+  >;
   tag?: string;
   title?: React.ReactNode;
   description: React.ReactNode;
 }
 
 export default function Card({ title, tag, description, Icon, className }: CardProps) {
+  const MotionIcon = Icon ? motion(Icon) : null;
   return (
     <motion.div
       initial="rest"
       whileHover="hover"
       animate="rest"
-      variants={cardVariants}
-      transition={{
-        duration: 0.325,
-        ease: 'easeOut'
-      }}
-      className={`relative flex w-full flex-col justify-between overflow-hidden rounded-lg border-[1px]
-  border-primary-100 bg-primary-50 p-8 hover:bg-[linear-gradient(#2351FF_-22%,_#132053_120%)] ${className}`}
+      transition={{ duration: 0.325, ease: 'easeOut' }}
+      className={` relative flex w-full flex-col justify-between overflow-hidden rounded-lg
+  border-[1px] border-primary-100 bg-primary-50 p-8 ${cardHoverClass} ${className}`}
     >
-      {Icon && (
-        <div className="relative">
+      {MotionIcon && (
+        <>
           <motion.div
-            variants={{
-              rest: { scale: 1, opacity: 1 },
-              hover: { scale: 0.7, opacity: [0.1, 0.9, 0.1] }
-            }}
-            transition={{ repeat: 0, ease: 'easeOut', duration: 0.325 }}
-            className="absolute -left-5 -top-5 flex h-24 w-24 items-center justify-center rounded-lg border-[1px] border-white"
-          />
-          <motion.div
-            variants={{
-              rest: { scale: 1, opacity: 0 },
-              hover: { scale: 0.7, opacity: [0.1, 0.325, 0.1] }
-            }}
-            transition={{ repeat: 0, ease: 'easeOut', duration: 0.325 }}
-            className="absolute -left-9 -top-9 flex h-32 w-32 items-center justify-center rounded-lg border-[1px] border-white"
-          />
-          <motion.div
-            variants={{
-              rest: { scale: 1, opacity: 0 },
-              hover: { scale: 0.7, opacity: [0.1, 0.2, 0.1] }
-            }}
-            transition={{ repeat: 0, ease: 'easeOut', duration: 0.325 }}
-            className="absolute -left-11 -top-11 flex h-[152px] w-[152px] items-center justify-center rounded-lg border-[1px] border-white"
-          />
+            transition={{ ease: 'circOut', duration: 0.325 }}
+            variants={{ rest: { opacity: 0.4 }, hover: { opacity: [1, 0.4, 0.1] } }}
+            className={`absolute -left-3 -top-3 z-10 h-[152px] w-[152px]
+            bg-[radial-gradient(45%_45%_at_50%_50%,_#2351FF_0%,_rgba(158,88,_223,_0)_100%)]`}
+          >
+            <motion.div
+              variants={{
+                rest: { height: '96px', width: '96px' },
+                hover: { height: '84px', width: '84px' }
+              }}
+              transition={{ repeat: 0, ease: 'easeOut', duration: 0.325 }}
+              className={`${squareClass} left-[28px] top-[28px] z-0 border-white`}
+            />
+            <motion.div
+              variants={{
+                rest: { height: '128px', width: '128px' },
+                hover: { height: '116px', width: '116px' }
+              }}
+              transition={{ repeat: 0, ease: 'easeOut', duration: 0.325 }}
+              className={`${squareClass} left-[12px] top-[12px] z-0 border-white/30`}
+            />
+            <motion.div
+              variants={{
+                rest: { height: '152px', width: '152px' },
+                hover: { height: '140px', width: '140px' }
+              }}
+              transition={{ repeat: 0, ease: 'easeOut', duration: 0.325 }}
+              className={`${squareClass} left-[4px] top-[4px] z-0 border-white/10`}
+            />
+          </motion.div>
           <motion.div
             variants={iconBoxVariants}
             transition={{ repeat: 0, ease: 'easeOut', duration: 0.325 }}
-
-            className="mb-11 flex h-14 w-14 items-center justify-center rounded-lg"
+            className="relative z-10 mb-11 flex h-14 w-14 origin-center items-center justify-center rounded-lg"
           >
-            <Icon className="h-8 w-8" />
+            <div className="contents">
+              <MotionIcon className="h-full w-full" variants={iconVariants} />
+            </div>
           </motion.div>
-        </div>
+        </>
       )}
       {tag && (
         <motion.span variants={tagVariants} className="mb-8 text-[40px] font-semibold">

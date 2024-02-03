@@ -1,11 +1,17 @@
-export default function Magnet(props: React.SVGProps<SVGSVGElement>) {
+import { forwardRef } from 'react';
+
+const Magnet = forwardRef(function Magnet(
+  props: React.SVGProps<SVGSVGElement>,
+  ref: React.ForwardedRef<SVGSVGElement>
+) {
   return (
     <svg
       {...props}
+      ref={ref}
       width="32"
       height="32"
       viewBox="0 0 32 32"
-      fill="none"
+      className="!fill-transparent"
       xmlns="http://www.w3.org/2000/svg"
     >
       <g id="&#195;&#141;CONE">
@@ -33,4 +39,6 @@ export default function Magnet(props: React.SVGProps<SVGSVGElement>) {
       </g>
     </svg>
   );
-}
+});
+
+export default Magnet;
