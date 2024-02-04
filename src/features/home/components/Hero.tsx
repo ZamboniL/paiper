@@ -73,10 +73,8 @@ export default function Hero() {
           <picture>
             <source srcSet="/print-xl.png" media="(min-width: 768px)" />
             <motion.img
-              style={{ rotateX, transformPerspective: 1200 }}
-              height={270}
-              width={360}
-              src="/print.png"
+              style={{ rotateX, transformPerspective: 1200, WebkitBackfaceVisibility: 'hidden' }}
+              src="/print-xl.png"
               alt=""
               className="w-auto drop-shadow-2xl"
             />

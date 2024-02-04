@@ -13,6 +13,7 @@ import DisplayCard from './DisplayCard';
 import { motion, useScroll, useSpring, useTransform } from 'framer-motion';
 import Star from 'components/icons/Star';
 import ThumbsUp from 'components/icons/ThumbsUp';
+import { useContainerDimensions } from 'hooks/useContainerDimensions';
 
 export type Solution = keyof typeof cards;
 
@@ -70,6 +71,8 @@ const cards = {
 
 export default function SolutionsList() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const tabsRef = useRef<HTMLDivElement>(null);
+  const { width, scrollWidth } = useContainerDimensions(tabsRef);
   const [activeTab, setActiveTab] = useState('crm');
   const { scrollYProgress } = useScroll({ target: containerRef, offset: ['start center', '25%'] });
   const scale = useTransform(scrollYProgress, [0, 1], [0.96, 1.05]);
@@ -110,7 +113,12 @@ export default function SolutionsList() {
           Garantimos eficiência e escalabilidade nas suas operações.
         </p>
       </div>
-      <div className="mb-12 flex gap-3 overflow-hidden px-4">
+      <motion.div
+        ref={tabsRef}
+        dragConstraints={{ left: -(scrollWidth - width), right: 0 }}
+        drag="x"
+        className="mb-12 flex gap-3  px-4"
+      >
         <Tab currentTab={activeTab} onClick={handleTabClick} value="crm" Icon={cards['crm'].icon}>
           CRM
         </Tab>
@@ -157,7 +165,7 @@ export default function SolutionsList() {
         >
           Workflow
         </Tab>
-      </div>
+      </motion.div>
       <div className="px-4">
         <DisplayCard
           Icon={cards[activeTab as Solution].icon}
