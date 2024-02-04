@@ -6,7 +6,13 @@ import { motion } from 'framer-motion';
 
 export default function Integration() {
   return (
-    <div className="overflow-y-clip bg-gradient-to-b from-transparent to-white pb-24 pt-72 md:pb-40 md:pt-[425px]">
+    <motion.div
+      initial={{ scale: 0.6 }}
+      whileInView={{ scale: 1 }}
+      transition={{ duration: 0.6, ease: 'easeInOut' }}
+      viewport={{ once: true }}
+      className="overflow-y-clip bg-gradient-to-b from-transparent to-white pb-24 pt-72 md:pb-40 md:pt-[425px]"
+    >
       <div className="relative">
         <div
           id="bigCircle"
@@ -114,7 +120,7 @@ export default function Integration() {
           <Button className="text-base">Ver todas as integrações</Button>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 

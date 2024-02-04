@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import Card from 'components/Card';
 import Chip from 'components/Chip';
 import Currency from 'components/icons/Currency';
@@ -8,7 +9,13 @@ import Rocket from 'components/icons/Rocket';
 
 export default function ApplicationList() {
   return (
-    <div className="mx-auto mt-20 flex max-w-[970px] flex-col items-center gap-6 px-4 md:mt-40 md:px-0">
+    <motion.div
+      initial={{ scale: 0.6 }}
+      whileInView={{ scale: 1 }}
+      transition={{ duration: 0.6, ease: 'easeInOut' }}
+      viewport={{ once: true }}
+      className="mx-auto mt-20 flex max-w-[970px] flex-col items-center gap-6 px-4 md:mt-40 md:px-0"
+    >
       <Chip Icon={Rocket} id="aplicacoes">
         Aplicações
       </Chip>
@@ -44,6 +51,6 @@ export default function ApplicationList() {
           className="col-span-3"
         />
       </div>
-    </div>
+    </motion.div>
   );
 }

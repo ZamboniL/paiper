@@ -1,10 +1,17 @@
+import { motion } from 'framer-motion';
 import Ticker from 'components/Ticker';
 
 const images = ['/img/bmp.png', '/img/rodobens.png', '/img/plenum.png', '/img/btg.png'];
 
 export default function Partners() {
   return (
-    <div className="relative mx-auto mt-20 flex max-w-full flex-col items-center gap-8 md:max-w-[970px]">
+    <motion.div
+      initial={{ scale: 0.6 }}
+      whileInView={{ scale: 1 }}
+      transition={{ duration: 0.6, ease: 'easeInOut' }}
+      viewport={{ once: true }}
+      className="relative mx-auto mt-20 flex max-w-full flex-col items-center gap-8 md:max-w-[970px]"
+    >
       <h3 className="max-w-3xl text-center text-base">As melhores empresas acreditam na Paiper</h3>
       <div className="max-w-full">
         <Ticker
@@ -23,6 +30,6 @@ export default function Partners() {
           ))}
         </Ticker>
       </div>
-    </div>
+    </motion.div>
   );
 }

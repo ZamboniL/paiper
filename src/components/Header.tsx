@@ -68,7 +68,7 @@ export default function Header() {
               <Link
                 href="/#aplicacoes"
                 onClick={() => setOpen(false)}
-                className="transition-colors hover:text-black"
+                className="transition-colors hover:text-primary-400"
               >
                 Aplicações
               </Link>
@@ -77,7 +77,7 @@ export default function Header() {
               <Link
                 href="/#beneficios"
                 onClick={() => setOpen(false)}
-                className="transition-colors hover:text-black"
+                className="transition-colors hover:text-primary-400"
               >
                 Benefícios
               </Link>
@@ -86,7 +86,7 @@ export default function Header() {
               <Link
                 href="/#solucoes"
                 onClick={() => setOpen(false)}
-                className="transition-colors hover:text-black"
+                className="transition-colors hover:text-primary-400"
               >
                 Soluções
               </Link>
@@ -95,7 +95,7 @@ export default function Header() {
               <Link
                 href="/integracoes"
                 onClick={() => setOpen(false)}
-                className="transition-colors hover:text-black"
+                className="transition-colors hover:text-primary-400"
               >
                 Integrações
               </Link>
