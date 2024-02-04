@@ -1,6 +1,12 @@
-import Image from 'next/image';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
+import BlueMouse from 'components/icons/BlueMouse';
+import GreenMouse from 'components/icons/GreenMouse';
+import OrangeMouse from 'components/icons/OrangeMouse';
+
+const MotionBlueMouse = motion(BlueMouse);
+const MotionGreenMouse = motion(GreenMouse);
+const MotionOrangeMouse = motion(OrangeMouse);
 
 export default function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -33,6 +39,36 @@ export default function Hero() {
             src="/icons/check.svg"
             alt=""
             className="absolute -top-5 right-4 z-10 md:-right-10 md:top-44 md:h-16 md:w-16"
+          />
+          <MotionBlueMouse
+            animate={{ x: [0, -720, -184], y: [0, -260, -40] }}
+            transition={{
+              repeat: Infinity,
+              repeatType: 'reverse',
+              duration: 24,
+              easings: 'easeInOut'
+            }}
+            className="absolute right-0 top-96 z-10 hidden md:block"
+          />
+          <MotionGreenMouse
+            animate={{ x: [0, 0, 0], y: [0, -56, -112] }}
+            transition={{
+              repeat: Infinity,
+              repeatType: 'reverse',
+              duration: 4,
+              easings: 'easeInOut'
+            }}
+            className="absolute -left-10 bottom-24 z-10 hidden md:block"
+          />
+          <MotionOrangeMouse
+            animate={{ x: [0, 72, 0], y: [0, -64, -128] }}
+            transition={{
+              repeat: Infinity,
+              repeatType: 'reverse',
+              duration: 6,
+              easings: 'easeInOut'
+            }}
+            className="absolute bottom-6 right-40 z-10 hidden md:block"
           />
           <picture>
             <source srcSet="/print-xl.png" media="(min-width: 768px)" />
