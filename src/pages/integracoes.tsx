@@ -1,5 +1,5 @@
-import Card from 'components/Card';
 import FooterBanner from 'components/FooterBanner';
+import IntegrationCard from 'components/IntegrationCard/IntegrationCard';
 
 export default function IntegrationsPage() {
   return (
@@ -10,9 +10,9 @@ export default function IntegrationsPage() {
       </h2>
       <div
         className="mb-16 flex flex-col items-center gap-5 px-4 md:mx-auto md:mb-24 md:max-w-[970px] 
-      md:flex-row md:flex-wrap md:justify-center md:px-0 md:*:max-w-[310px] md:*:p-6"
+      md:flex-row md:flex-wrap md:justify-center md:px-0"
       >
-        <Card
+        <IntegrationCard
           title={
             <>
               <img src="/integracoes/aws.png" alt="" />
@@ -21,7 +21,7 @@ export default function IntegrationsPage() {
           }
           description="Plataforma de serviços de computação em nuvem oferecida pela Amazon."
         />
-        <Card
+        <IntegrationCard
           title={
             <>
               <img src="/integracoes/engati.png" alt="" />
@@ -30,7 +30,7 @@ export default function IntegrationsPage() {
           }
           description="Crie chatbots inteligentes e personalizados para fornecer suporte ao seus clientes."
         />
-        <Card
+        <IntegrationCard
           title={
             <>
               <img src="/integracoes/clicksign.png" alt="" />
@@ -44,7 +44,7 @@ export default function IntegrationsPage() {
             </>
           }
         />
-        <Card
+        <IntegrationCard
           title={
             <>
               <img src="/integracoes/pontal-tech.png" alt="" />
@@ -53,7 +53,7 @@ export default function IntegrationsPage() {
           }
           description="Envio de SMS marketing, SMS corporativo, cobrando, recuperação extrajudicial, entre outros."
         />
-        <Card
+        <IntegrationCard
           title={
             <>
               <img src="/integracoes/voll.png" alt="" />
@@ -62,7 +62,7 @@ export default function IntegrationsPage() {
           }
           description="Sincronize sistemas, aplicativos e plataformas diferentes para melhorar a eficiência operacional."
         />
-        <Card
+        <IntegrationCard
           title={
             <>
               <img src="/integracoes/gupshup.png" alt="" />
@@ -71,7 +71,7 @@ export default function IntegrationsPage() {
           }
           description="Crie chatbots personalizados e automatizados para fornecer suporte ao seu cliente."
         />
-        <Card
+        <IntegrationCard
           title={
             <>
               <img src="/integracoes/nuveo.png" alt="" />
@@ -80,7 +80,7 @@ export default function IntegrationsPage() {
           }
           description="Automatize tarefas manuais e repetitivas, melhorando a sua eficiência operacional."
         />
-        <Card
+        <IntegrationCard
           title={
             <>
               <img src="/integracoes/transfeera.png" alt="" />

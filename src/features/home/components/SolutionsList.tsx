@@ -11,6 +11,8 @@ import PersonCheck from '../../../components/icons/PersonCheck';
 import Stars from 'components/icons/Stars';
 import DisplayCard from './DisplayCard';
 import { motion, useScroll, useSpring, useTransform } from 'framer-motion';
+import Star from 'components/icons/Star';
+import ThumbsUp from 'components/icons/ThumbsUp';
 
 export type Solution = keyof typeof cards;
 
@@ -79,11 +81,23 @@ export default function SolutionsList() {
 
   return (
     <motion.div
-      className="mt-20 rounded-2xl bg-primary-400 py-24 md:mt-40
+      className="relative mt-20 rounded-2xl bg-primary-400 py-24 md:mt-40
     md:flex md:flex-col md:items-center md:justify-center md:py-40"
       ref={containerRef}
       style={{ scale: scaleSpring }}
     >
+      <div
+        className={`absolute -top-10 left-8 flex h-20 w-20 items-center justify-center rounded-xl bg-[linear-gradient(140deg,_#2351FF_-3.5%,_#4C80FF_110%)]
+      md:left-40`}
+      >
+        <Star />
+      </div>
+      <div
+        className={`absolute bottom-40 right-72 hidden h-20 w-20 items-center justify-center rounded-xl 
+        bg-[linear-gradient(140deg,_#2351FF_-3.5%,_#4C80FF_110%)] xl:flex`}
+      >
+        <ThumbsUp />
+      </div>
       <div className="mb-12 flex flex-col items-center gap-6 md:max-w-3xl">
         <Chip Icon={Lightning} id="solucoes">
           Soluções
@@ -152,6 +166,32 @@ export default function SolutionsList() {
           image={cards[activeTab as Solution].image}
         />
       </div>
+      <motion.div initial="rest" whileInView="view" viewport={{ once: true }} className="relative">
+        <motion.div
+          variants={{
+            rest: { width: '0px', height: '0px' },
+            view: { width: '770px', height: '770px' }
+          }}
+          transition={{ duration: 1, delay: 0.85, ease: 'easeInOut' }}
+          className="absolute bottom-[-712px] left-1/2 -translate-x-1/2 rounded-full bg-white opacity-5"
+        />
+        <motion.div
+          variants={{
+            rest: { width: '0px', height: '0px' },
+            view: { width: '975px', height: '975px' }
+          }}
+          transition={{ duration: 1, delay: 0.35, ease: 'easeInOut' }}
+          className="absolute bottom-[-812px] left-1/2 -translate-x-1/2 rounded-full bg-white opacity-5"
+        />
+        <motion.div
+          variants={{
+            rest: { width: '1000px', height: '1000px' },
+            view: { width: '1200px', height: '1200px' }
+          }}
+          transition={{ duration: 0.7, ease: 'easeInOut' }}
+          className="absolute bottom-[-920px] left-1/2 -translate-x-1/2 rounded-full bg-white opacity-5"
+        />
+      </motion.div>
     </motion.div>
   );
 }
