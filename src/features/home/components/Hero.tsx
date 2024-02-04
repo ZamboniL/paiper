@@ -41,14 +41,14 @@ export default function Hero() {
             className="absolute -top-5 right-4 z-10 md:-right-10 md:top-44 md:h-16 md:w-16"
           />
           <MotionBlueMouse
-            animate={{ x: [0, -720, -184], y: [0, -260, -40] }}
+            animate={{ x: [0, -320, -184], y: [0, -260, -40] }}
             transition={{
               repeat: Infinity,
               repeatType: 'reverse',
               duration: 24,
               easings: 'easeInOut'
             }}
-            className="absolute right-0 top-96 z-10 hidden md:block"
+            className="absolute -right-20 top-64 z-10 w-20 md:right-0 md:top-96 md:block md:w-auto"
           />
           <MotionGreenMouse
             animate={{ x: [0, 0, 0], y: [0, -56, -112] }}
@@ -58,7 +58,7 @@ export default function Hero() {
               duration: 4,
               easings: 'easeInOut'
             }}
-            className="absolute -left-10 bottom-24 z-10 hidden md:block"
+            className="absolute -left-10 bottom-0 z-10 w-20 md:bottom-24 md:block md:w-auto"
           />
           <MotionOrangeMouse
             animate={{ x: [0, 72, 0], y: [0, -64, -128] }}
@@ -68,17 +68,14 @@ export default function Hero() {
               duration: 6,
               easings: 'easeInOut'
             }}
-            className="absolute bottom-6 right-40 z-10 hidden md:block"
+            className="absolute bottom-0 right-40 z-10 w-20 md:bottom-6 md:block md:w-auto"
           />
-          <picture>
-            <source srcSet="/print-xl.png" media="(min-width: 768px)" />
-            <motion.img
-              style={{ rotateX, transformPerspective: 1200, WebkitBackfaceVisibility: 'hidden' }}
-              src="/print-xl.png"
-              alt=""
-              className="w-auto drop-shadow-2xl"
-            />
-          </picture>
+          <motion.img
+            style={{ rotateX, transformPerspective: 1200, WebkitBackfaceVisibility: 'hidden' }}
+            src="/print-xl.png"
+            alt=""
+            className="w-auto drop-shadow-2xl"
+          />
           <picture>
             <source srcSet="/ai-button-xl.png" media="(min-width: 768px)" />
             <motion.img
