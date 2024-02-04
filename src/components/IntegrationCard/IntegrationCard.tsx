@@ -19,7 +19,7 @@ interface CardProps {
 export default function IntegrationCard({ title, description, className }: CardProps) {
   const ref = useRef<HTMLDivElement>(null);
   useEffect(() => {
-    const update = (event: PointerEvent) => {
+    const update = (event: MouseEvent) => {
       if (!ref.current) return;
       const card = ref.current;
       // get the angle based on the center point of the card and pointer position
@@ -47,10 +47,10 @@ export default function IntegrationCard({ title, description, className }: CardP
       card.style.setProperty('--start', (ANGLE + 90).toString());
     };
 
-    document.body.addEventListener('pointermove', update);
+    document.body.addEventListener('mousemove', update);
 
     return () => {
-      document.body.removeEventListener('pointermove', update);
+      document.body.removeEventListener('mousemove', update);
     };
   }, []);
 
@@ -58,7 +58,7 @@ export default function IntegrationCard({ title, description, className }: CardP
     <article ref={ref} className={styles.article}>
       <div className={styles.glows}></div>
       <div
-        className={` relative flex w-full flex-col justify-between overflow-hidden rounded-lg
+        className={`relative flex w-full flex-col justify-between overflow-hidden rounded-lg
   border-[1px] border-primary-100 bg-primary-50 p-8 md:max-w-[310px] md:p-6 ${className}`}
       >
         <div>

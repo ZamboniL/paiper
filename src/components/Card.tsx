@@ -14,32 +14,11 @@ const iconBoxVariants: Variants = {
   }
 };
 
-const tagVariants: Variants = {
-  rest: {
-    color: '#2351FF'
-  },
-  hover: {
-    color: '#ffffff'
-  }
-};
+const tagVariants: Variants = { rest: { color: '#2351FF' }, hover: { color: '#ffffff' } };
 
-const titleVariants: Variants = {
-  rest: {
-    color: '#132053'
-  },
-  hover: {
-    color: '#ffffff'
-  }
-};
+const titleVariants: Variants = { rest: { color: '#132053' }, hover: { color: '#ffffff' } };
 
-const textVariants: Variants = {
-  rest: {
-    color: '#7A8089'
-  },
-  hover: {
-    color: '#ffffff'
-  }
-};
+const textVariants: Variants = { rest: { color: '#7A8089' }, hover: { color: '#ffffff' } };
 
 const circleVariants: Variants = {
   rest: {
@@ -81,6 +60,7 @@ export default function Card({ title, tag, description, Icon, className }: CardP
     <motion.div
       initial="rest"
       whileHover="hover"
+      whileTap="hover"
       animate="rest"
       transition={{ duration: 0.325, ease: 'easeOut' }}
       className={` relative flex w-full flex-col justify-between overflow-hidden rounded-lg

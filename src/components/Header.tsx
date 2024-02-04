@@ -45,12 +45,12 @@ export default function Header() {
             className="mb-9 flex w-full items-center justify-between border-b-[1px] p-4
          md:mb-0 md:w-auto md:border-0 md:p-0"
           >
-            <Link href="/">
+            <Link href="/" onClick={() => setOpen(false)}>
               <Image width={120} height={38} src="logo.svg" alt="" />
             </Link>
-            <Image
-              width={32}
-              height={32}
+            <img
+              width={24}
+              height={open ? 24 : 16}
               src={open ? 'icons/x.svg' : 'icons/hamburguer.svg'}
               alt=""
               className="md:hidden"
@@ -65,16 +65,40 @@ export default function Header() {
             } gap-8 md:flex`}
           >
             <li>
-              <Link href="/#aplicacoes">Aplicações</Link>
+              <Link
+                href="/#aplicacoes"
+                onClick={() => setOpen(false)}
+                className="transition-colors hover:text-black"
+              >
+                Aplicações
+              </Link>
             </li>
             <li>
-              <Link href="/#beneficios">Benefícios</Link>
+              <Link
+                href="/#beneficios"
+                onClick={() => setOpen(false)}
+                className="transition-colors hover:text-black"
+              >
+                Benefícios
+              </Link>
             </li>
             <li>
-              <Link href="/#solucoes">Soluções</Link>
+              <Link
+                href="/#solucoes"
+                onClick={() => setOpen(false)}
+                className="transition-colors hover:text-black"
+              >
+                Soluções
+              </Link>
             </li>
             <li>
-              <Link href="/integracoes">Integrações</Link>
+              <Link
+                href="/integracoes"
+                onClick={() => setOpen(false)}
+                className="transition-colors hover:text-black"
+              >
+                Integrações
+              </Link>
             </li>
           </ul>
           <ul
@@ -83,7 +107,12 @@ export default function Header() {
             } gap-3 md:flex md:items-center`}
           >
             <li>
-              <Button className="w-full md:w-auto" color="light" href="/contato">
+              <Button
+                className="block w-full md:w-auto"
+                color="light"
+                href="/contato"
+                onClick={() => setOpen(false)}
+              >
                 Contato
               </Button>
             </li>

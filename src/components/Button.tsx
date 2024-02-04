@@ -47,9 +47,10 @@ export default function Button({
   if (href) {
     return (
       <Link
-        className={`${colorClass[color].color} rounded-lg px-5 py-3 font-semibold ${className}`}
+        className={`${colorClass[color].color} rounded-lg px-5 py-3 text-center font-semibold ${className}`}
         style={{ background: colorClass[color].background }}
         href={href}
+        onClick={onClick}
       >
         {children}
       </Link>
