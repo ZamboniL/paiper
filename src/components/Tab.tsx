@@ -26,7 +26,7 @@ export default function Tab({
       className={`flex items-center gap-1 rounded-lg border-[1px] p-2 transition-colors hover:bg-primary-300/[0.2] ${statusClasses} ${className}`}
     >
       {Icon && <Icon className="h-6 w-6" />}
-      <span className="w-fit text-nowrap text-white">{children}</span>
+      <span className="w-fit whitespace-nowrap text-nowrap text-white">{children}</span>
     </button>
   );
 }
