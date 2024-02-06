@@ -70,30 +70,30 @@ export default function Card({ title, tag, description, Icon, className }: CardP
         <>
           <motion.div
             transition={{ ease: 'circOut', duration: 0.325 }}
-            variants={{ rest: { opacity: 0.4 }, hover: { opacity: [1, 0.4, 0.1] } }}
+            variants={{ rest: { opacity: 0.4 }, hover: { opacity: [1, 0.4, 0.5] } }}
             className={`absolute -left-3 -top-3 z-10 h-[152px] w-[152px]
             bg-[radial-gradient(45%_45%_at_50%_50%,_#2351FF_0%,_rgba(158,88,_223,_0)_100%)]`}
           >
             <motion.div
               variants={{
-                rest: { height: '96px', width: '96px' },
-                hover: { height: '84px', width: '84px' }
+                rest: { opacity: 0, height: '96px', width: '96px' },
+                hover: { opacity: [1, 0.4, 0.1], height: '84px', width: '84px' }
               }}
               transition={{ repeat: 0, ease: 'easeOut', duration: 0.325 }}
               className={`${squareClass} left-[28px] top-[28px] z-0 border-white`}
             />
             <motion.div
               variants={{
-                rest: { height: '128px', width: '128px' },
-                hover: { height: '116px', width: '116px' }
+                rest: { opacity: 0, height: '128px', width: '128px' },
+                hover: { opacity: [1, 0.4, 0.1], height: '116px', width: '116px' }
               }}
               transition={{ repeat: 0, ease: 'easeOut', duration: 0.325 }}
               className={`${squareClass} left-[12px] top-[12px] z-0 border-white/30`}
             />
             <motion.div
               variants={{
-                rest: { height: '152px', width: '152px' },
-                hover: { height: '140px', width: '140px' }
+                rest: { opacity: 0, height: '152px', width: '152px' },
+                hover: { opacity: [1, 0.4, 0.1], height: '140px', width: '140px' }
               }}
               transition={{ repeat: 0, ease: 'easeOut', duration: 0.325 }}
               className={`${squareClass} left-[4px] top-[4px] z-0 border-white/10`}

@@ -3,10 +3,14 @@ import Chip from 'components/Chip';
 import Graph from 'components/icons/Graph';
 import { useScroll, useTransform, motion } from 'framer-motion';
 import { useRef } from 'react';
+import BenefitItem from './BenefitItem';
 
 export default function BenefitList() {
   const containerRef = useRef<HTMLUListElement>(null);
-  const { scrollYProgress } = useScroll({ target: containerRef, offset: ['start center', '50%'] });
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ['start center', 'center center', 'end center']
+  });
   const scale = useTransform(scrollYProgress, [0, 1], ['0%', '100%']);
 
   return (
@@ -48,51 +52,23 @@ export default function BenefitList() {
           className="absolute left-7 top-0 h-40 w-1 rounded-sm bg-primary-400"
           style={{ height: scale }}
         />
-        <li className="flex gap-8">
-          <div className="flex flex-col items-center gap-3">
-            <span className="relative z-10 bg-white text-5xl font-semibold text-primary-400">
-              01
-            </span>
-          </div>
-          <p className="text-primary-200">
-            Centralize dados do cliente em uma plataforma única para gestão eficiente e análise
-            estratégica. Otimizando o relacionamento e embase decisões para o sucesso do negócio.
-          </p>
-        </li>
-        <li className="flex gap-8">
-          <div className="flex flex-col items-center gap-3">
-            <span className="relative z-10 bg-white text-5xl font-semibold text-primary-400">
-              02
-            </span>
-          </div>
-          <p className="text-primary-200">
-            Aprimore a tomada de decisões por meio de uma abordagem orientada por informações,
-            otimizando a análise de dados para impulsionar escolhas estratégicas embasadas.
-          </p>
-        </li>
-        <li className="flex gap-8">
-          <div className="flex flex-col items-center gap-3">
-            <span className="relative z-10 bg-white text-5xl font-semibold text-primary-400">
-              03
-            </span>
-          </div>
-          <p className="text-primary-200">
-            Eleve significativamente a taxa de retenção de clientes, reduzindo efetivamente a taxa
-            de churn. Fortalecendo a fidelidade do cliente com estratégias focadas na satisfação e
-            na entrega contínua de valor.
-          </p>
-        </li>
-        <li className="flex gap-8">
-          <div className="flex flex-col items-center gap-3">
-            <span className="relative z-10 bg-white text-5xl font-semibold text-primary-400">
-              04
-            </span>
-          </div>
-          <p className="text-primary-200">
-            Reconheça proativamente oportunidades de crescimento e impulsione as vendas para seus
-            clientes existentes, implementando estratégias personalizadas e eficazes.
-          </p>
-        </li>
+        <BenefitItem
+          title="01"
+          description="Centralize dados do cliente em uma plataforma única para gestão eficiente e análise
+            estratégica. Otimizando o relacionamento e embase decisões para o sucesso do negócio."
+        />
+        <BenefitItem
+          title="02"
+          description="Aprimore a tomada de decisões por meio de uma abordagem orientada por informações, otimizando a análise de dados para impulsionar escolhas estratégicas embasadas."
+        />
+        <BenefitItem
+          title="03"
+          description="Eleve significativamente a taxa de retenção de clientes, reduzindo efetivamente a taxa de churn. Fortalecendo a fidelidade do cliente com estratégias focadas na satisfação e na entrega contínua de valor."
+        />
+        <BenefitItem
+          title="04"
+          description="Reconheça proativamente oportunidades de crescimento e impulsione as vendas para seus clientes existentes, implementando estratégias personalizadas e eficazes."
+        />
       </ul>
     </motion.div>
   );

@@ -67,11 +67,11 @@ export default function Button({
         rest: { background: colorClass[color].background },
         hover: { background: colorClass[color].backgroundHover }
       }}
-      className={`${colorClass[color].color} rounded-lg px-5 py-3 font-semibold ${className} relative overflow-hidden`}
+      className={`${colorClass[color].color} relative overflow-hidden rounded-lg px-5 py-3 font-semibold ${className}`}
       onClick={onClick}
     >
       <motion.div
-        variants={{ rest: { x: 0 }, hover: { x: width + 80 } }}
+        variants={{ rest: { x: -20 }, hover: { x: width + 80 } }}
         transition={{ duration: 0.5, ease: 'easeInOut' }}
         className="absolute -left-4 top-0 h-full w-[6px] origin-center bg-white blur-md"
       />

@@ -41,10 +41,7 @@ export default function Header() {
         } flex justify-center border-primary-100 bg-white md:border-b-[1px] md:py-4`}
       >
         <div className="flex w-full max-w-7xl flex-col justify-between md:flex-row md:items-center md:px-4">
-          <div
-            className="mb-9 flex w-full items-center justify-between border-b-[1px] p-4
-         md:mb-0 md:w-auto md:border-0 md:p-0"
-          >
+          <div className="flex w-full items-center justify-between border-b-[1px] p-4 md:w-auto md:border-0 md:p-0">
             <Link href="/" onClick={() => setOpen(false)}>
               <Image width={120} height={38} src="logo.svg" alt="" />
             </Link>
@@ -60,7 +57,7 @@ export default function Header() {
           <ul
             className={`${
               open
-                ? 'mb-9 flex flex-col border-b-[1px] border-primary-100 bg-white px-4 pb-9'
+                ? 'mb-9 flex flex-col border-b-[1px] border-primary-100 bg-white px-4 py-9'
                 : 'hidden'
             } gap-8 md:flex`}
           >

@@ -20,7 +20,9 @@ export default function IntegrationsPage() {
             <Input placeholder="Nome completo" />
             <Input placeholder="E-mail" />
             <Input placeholder="Telefone" />
-            <Button color="dark">Enviar mensagem</Button>
+            <Button color="dark" className="h-[52px] !rounded">
+              Enviar mensagem
+            </Button>
           </form>
           <div className="flex flex-col gap-8 md:gap-16 ">
             <div className="flex flex-col *:text-white">
