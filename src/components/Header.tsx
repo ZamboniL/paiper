@@ -2,6 +2,8 @@ import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import Button from './Button';
 import Link from 'next/link';
+import FilledButton from './FilledButton';
+import Whatsapp from './icons/Whatsapp';
 
 export default function Header() {
   const [open, setOpen] = useState(false);
@@ -56,53 +58,14 @@ export default function Header() {
           </div>
           <ul
             className={`${
-              open
-                ? 'mb-9 flex flex-col border-b-[1px] border-primary-100 bg-white px-4 py-9'
-                : 'hidden'
-            } gap-8 md:flex`}
+              open ? ' mt-8 flex h-screen flex-col bg-white px-4' : 'hidden'
+            } gap-4 md:flex md:items-center`}
           >
-            <li>
-              <Link
-                href="/#aplicacoes"
-                onClick={() => setOpen(false)}
-                className="transition-colors hover:text-primary-400"
-              >
-                Aplicações
-              </Link>
+            <li className="hidden border-r pr-4 md:block">
+              <FilledButton color="success" className="w-full gap-2.5">
+                <Whatsapp /> Fale conosco
+              </FilledButton>
             </li>
-            <li>
-              <Link
-                href="/#beneficios"
-                onClick={() => setOpen(false)}
-                className="transition-colors hover:text-primary-400"
-              >
-                Benefícios
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/#solucoes"
-                onClick={() => setOpen(false)}
-                className="transition-colors hover:text-primary-400"
-              >
-                Soluções
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/integracoes"
-                onClick={() => setOpen(false)}
-                className="transition-colors hover:text-primary-400"
-              >
-                Integrações
-              </Link>
-            </li>
-          </ul>
-          <ul
-            className={`${
-              open ? ' flex h-screen flex-col bg-white px-4' : 'hidden'
-            } gap-3 md:flex md:items-center`}
-          >
             <li>
               <Button
                 className="block w-full md:w-auto"
@@ -110,11 +73,16 @@ export default function Header() {
                 href="/contato"
                 onClick={() => setOpen(false)}
               >
-                Contato
+                Entrar na plataforma
               </Button>
             </li>
             <li>
-              <Button className="w-full md:w-auto">Entrar</Button>
+              <Button className="w-full md:w-auto">Agendar uma demo</Button>
+            </li>
+            <li className=" border-t pt-4 md:hidden">
+              <FilledButton color="success" className="w-full gap-2.5">
+                <Whatsapp /> Fale conosco
+              </FilledButton>
             </li>
           </ul>
         </div>

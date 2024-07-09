@@ -11,35 +11,27 @@ interface ButtonProps {
   children: React.ReactNode;
 }
 
-const colorClass: Record<
-  Required<ButtonProps>['color'],
-  { background: string; backgroundHover: string; color: string }
-> = {
-  light: {
-    background: '#EBF6FF',
-    backgroundHover: '#2351FF',
+const colorClass: Record<Required<ButtonProps>['color'], { border: string; borderHover: string }> =
+  {
+    light: {
+      border: '#EBF6FF',
+      borderHover: '#2351FF'
+    },
+    main: {
+      border: '#2351FF',
+      borderHover: '#5271FF'
+    },
+    dark: {
+      border: '#132053',
+      borderHover: '#233169'
+    },
+    success: {
+      border: '#00CD73',
+      borderHover: '#00AC49'
+    }
+  };
 
-    color: 'text-primary-400'
-  },
-  main: {
-    background: '#2351FF',
-    backgroundHover: '#5271FF',
-
-    color: 'text-primary-300'
-  },
-  dark: {
-    background: '#132053',
-    backgroundHover: '#233169',
-    color: 'bg-primary-500 text-white'
-  },
-  success: {
-    background: '#00CD73',
-    backgroundHover: '#00AC49',
-    color: 'bg-primary-500 text-white'
-  }
-};
-
-export default function Button({
+export default function FilledButton({
   color = 'main',
   className,
   onClick,
@@ -52,8 +44,8 @@ export default function Button({
   if (href) {
     return (
       <Link
-        className={`${colorClass[color].color} flex h-[42px] items-center justify-center rounded-lg px-6 text-center font-semibold ${className}`}
-        style={{ background: colorClass[color].background }}
+        className={`flex h-[42px] items-center justify-center rounded-lg px-6 text-center font-semibold ${className} border`}
+        style={{ borderColor: colorClass[color].border, color: colorClass[color].border }}
         href={href}
         onClick={onClick}
       >
@@ -69,10 +61,10 @@ export default function Button({
       whileHover="hover"
       animate="rest"
       variants={{
-        rest: { background: colorClass[color].background },
-        hover: { background: colorClass[color].backgroundHover }
+        rest: { borderColor: colorClass[color].border, color: colorClass[color].border },
+        hover: { borderColor: colorClass[color].borderHover }
       }}
-      className={`${colorClass[color].color} relative flex h-[42px] items-center justify-center overflow-hidden rounded-lg px-6 font-semibold ${className}`}
+      className={`relative flex h-[42px] items-center justify-center overflow-hidden rounded-lg border px-6 font-semibold ${className}`}
       onClick={onClick}
     >
       <motion.div
