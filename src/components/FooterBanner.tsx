@@ -1,74 +1,45 @@
-import { useScroll, useTransform } from 'framer-motion';
-import Arrow from './icons/Arrow';
-import { motion } from 'framer-motion';
-import { useState } from 'react';
-
-function BannerItem({
-  isHovered,
-  onMouseEnter,
-  onMouseLeave
-}: {
-  isHovered: boolean;
-  onMouseEnter: () => void;
-  onMouseLeave: () => void;
-}) {
+export default function FooterBanner() {
   return (
-    <div
-      className="flex cursor-pointer items-center gap-4"
-      onMouseEnter={onMouseEnter}
-      onMouseLeave={onMouseLeave}
-    >
-      <span className="whitespace-nowrap text-nowrap text-4xl font-semibold text-white md:text-5xl">
-        Veja o Paiper em ação
-      </span>
-      <motion.div
-        className="w-fit rounded-full bg-white p-2 md:p-4"
-        transition={{ ease: 'easeOut' }}
-        animate={{ rotate: isHovered ? 45 : 0 }}
+    <div className="relative w-full">
+      <div className="absolute -top-12 right-1/2 z-40 mx-auto flex w-[356px] max-w-[98%] translate-x-1/2 flex-col items-center justify-center gap-2.5 rounded-lg bg-primary-400 px-14 py-6 sm:top-1/2 sm:-translate-y-1/2 md:w-[570px] md:gap-6 md:py-9">
+        <h2 className="text-center text-4xl font-semibold text-white">Veja o Paiper em ação!</h2>
+        <button className="rounded-md bg-white px-6 py-3.5 font-semibold text-primary-400">
+          Agendar demonstração
+        </button>
+      </div>
+      <svg
+        viewBox="0 0 1370 460"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        className="-mb-1 w-full sm:hidden"
       >
-        <Arrow />
-      </motion.div>
-    </div>
-  );
-}
-
-export default function FooterBanner({ transformRange }: { transformRange: [number, number] }) {
-  const [hover, setHover] = useState<number | boolean>(false);
-  const { scrollYProgress } = useScroll();
-  const translateY = useTransform(scrollYProgress, [0, 1], transformRange);
-
-  const handleHover = (index: number) => () => {
-    setHover(index);
-  };
-
-  const handleHoverEnd = () => {
-    setHover(false);
-  };
-
-  return (
-    <div className="relative w-full overflow-hidden bg-primary-400">
-      <motion.div style={{ translateX: translateY }} className=" flex h-24 gap-16 py-12 md:py-16">
-        <BannerItem
-          isHovered={hover === 1}
-          onMouseEnter={handleHover(1)}
-          onMouseLeave={handleHoverEnd}
+        <path
+          d="M 0 0 L 132.926 18.549 C 499.206 69.661 870.794 69.661 1237.07 18.549 L 1370 0 L 1370 860 L 0 860 L 0 0 Z"
+          fill="#132053"
         />
-        <BannerItem
-          isHovered={hover === 2}
-          onMouseEnter={handleHover(2)}
-          onMouseLeave={handleHoverEnd}
+      </svg>
+      <svg
+        viewBox="0 0 1370 300"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        className="-mb-1 hidden w-full sm:block md:hidden"
+      >
+        <path
+          d="M 0 0 L 132.926 18.549 C 499.206 69.661 870.794 69.661 1237.07 18.549 L 1370 0 L 1370 460 L 0 460 L 0 0 Z"
+          fill="#132053"
         />
-        <BannerItem
-          isHovered={hover === 3}
-          onMouseEnter={handleHover(3)}
-          onMouseLeave={handleHoverEnd}
+      </svg>
+      <svg
+        viewBox="0 0 1370 120"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        className="-mb-1 hidden w-full md:block"
+      >
+        <path
+          d="M 0 0 L 132.926 18.549 C 499.206 69.661 870.794 69.661 1237.07 18.549 L 1370 0 L 1370 460 L 0 460 L 0 0 Z"
+          fill="#132053"
         />
-        <BannerItem
-          isHovered={hover === 4}
-          onMouseEnter={handleHover(4)}
-          onMouseLeave={handleHoverEnd}
-        />
-      </motion.div>
+      </svg>
     </div>
   );
 }

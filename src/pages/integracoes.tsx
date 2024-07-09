@@ -90,7 +90,7 @@ export default function IntegrationsPage() {
           description="Realize transferências bancarias de forma ágil e eficiente, integrando sistemas financeiros."
         />
       </div>
-      <FooterBanner transformRange={[0, -100]} />
+      <FooterBanner />
     </main>
   );
 }
