@@ -1,34 +1,15 @@
-import { motion } from 'framer-motion';
-
-export default function BenefitItem({
-  title,
-  description
-}: {
+interface BenefitItemProps {
   title: string;
   description: string;
-}) {
+  image: string;
+}
+
+export default function BenefitItem({ title, description, image }: BenefitItemProps) {
   return (
-    <motion.li
-      initial="rest"
-      whileInView="inView"
-      viewport={{ margin: '50% 0px -50% 0px' }}
-      className="flex gap-8"
-    >
-      <div className="flex flex-col items-center gap-3">
-        <motion.span
-          variants={{ inView: { color: '#2351FF' } }}
-          className="relative z-10 bg-white text-5xl font-semibold text-primary-100"
-        >
-          {title}
-        </motion.span>
-      </div>
-      <motion.p
-        variants={{ rest: { y: 20, opacity: 0 }, inView: { y: 0, opacity: 1 } }}
-        transition={{ duration: 0.2, ease: 'easeInOut' }}
-        className="text-primary-200"
-      >
-        {description}
-      </motion.p>
-    </motion.li>
+    <li className="w-[336px] rounded-lg border border-primary-300 bg-primary-50 p-8 md:w-[370px]">
+      <img className="rounded-lg pb-8 " alt="" src={image} />
+      <h3 className="pb-2 font-semibold">{title}</h3>
+      <p className="text-sm text-primary-200">{description}</p>
+    </li>
   );
 }

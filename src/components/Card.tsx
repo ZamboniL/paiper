@@ -14,8 +14,6 @@ const iconBoxVariants: Variants = {
   }
 };
 
-const tagVariants: Variants = { rest: { color: '#2351FF' }, hover: { color: '#ffffff' } };
-
 const titleVariants: Variants = { rest: { color: '#132053' }, hover: { color: '#ffffff' } };
 
 const textVariants: Variants = { rest: { color: '#7A8089' }, hover: { color: '#ffffff' } };
@@ -46,16 +44,15 @@ rounded-lg border-[1px]`;
 
 interface CardProps {
   className?: string;
-  Icon?: React.ForwardRefExoticComponent<
+  Icon: React.ForwardRefExoticComponent<
     Omit<React.SVGProps<SVGSVGElement>, 'ref'> & RefAttributes<SVGSVGElement>
   >;
-  tag?: string;
   title?: React.ReactNode;
   description: React.ReactNode;
 }
 
-export default function Card({ title, tag, description, Icon, className }: CardProps) {
-  const MotionIcon = Icon ? motion(Icon) : null;
+export default function Card({ title, description, Icon, className }: CardProps) {
+  const MotionIcon = motion(Icon);
   return (
     <motion.div
       initial="rest"
@@ -66,66 +63,53 @@ export default function Card({ title, tag, description, Icon, className }: CardP
       className={` relative flex w-full flex-col justify-between overflow-hidden rounded-lg
   border-[1px] border-primary-100 bg-primary-50 p-8 ${cardHoverClass} ${className}`}
     >
-      {MotionIcon && (
-        <>
-          <motion.div
-            transition={{ ease: 'circOut', duration: 0.325 }}
-            variants={{ rest: { opacity: 0.4 }, hover: { opacity: [1, 0.4, 0.5] } }}
-            className={`absolute -left-3 -top-3 z-10 h-[152px] w-[152px]
+      <motion.div
+        transition={{ ease: 'circOut', duration: 0.325 }}
+        variants={{ rest: { opacity: 0.4 }, hover: { opacity: [1, 0.4, 0.5] } }}
+        className={`absolute -left-3 -top-3 z-10 h-[152px] w-[152px]
             bg-[radial-gradient(45%_45%_at_50%_50%,_#2351FF_0%,_rgba(158,88,_223,_0)_100%)]`}
-          >
-            <motion.div
-              variants={{
-                rest: { opacity: 0, height: '96px', width: '96px' },
-                hover: { opacity: [1, 0.4, 0.1], height: '84px', width: '84px' }
-              }}
-              transition={{ repeat: 0, ease: 'easeOut', duration: 0.325 }}
-              className={`${squareClass} left-[28px] top-[28px] z-0 border-white`}
-            />
-            <motion.div
-              variants={{
-                rest: { opacity: 0, height: '128px', width: '128px' },
-                hover: { opacity: [1, 0.4, 0.1], height: '116px', width: '116px' }
-              }}
-              transition={{ repeat: 0, ease: 'easeOut', duration: 0.325 }}
-              className={`${squareClass} left-[12px] top-[12px] z-0 border-white/30`}
-            />
-            <motion.div
-              variants={{
-                rest: { opacity: 0, height: '152px', width: '152px' },
-                hover: { opacity: [1, 0.4, 0.1], height: '140px', width: '140px' }
-              }}
-              transition={{ repeat: 0, ease: 'easeOut', duration: 0.325 }}
-              className={`${squareClass} left-[4px] top-[4px] z-0 border-white/10`}
-            />
-          </motion.div>
-          <motion.div
-            variants={iconBoxVariants}
-            transition={{ repeat: 0, ease: 'easeOut', duration: 0.325 }}
-            className="relative z-10 mb-11 flex h-14 w-14 origin-center items-center justify-center rounded-lg"
-          >
-            <div className="contents">
-              <MotionIcon className="h-full w-full" variants={iconVariants} />
-            </div>
-          </motion.div>
-        </>
-      )}
-      {tag && (
-        <motion.span variants={tagVariants} className="mb-8 text-[40px] font-semibold">
-          {tag}
-        </motion.span>
-      )}
+      >
+        <motion.div
+          variants={{
+            rest: { opacity: 0, height: '96px', width: '96px' },
+            hover: { opacity: [1, 0.4, 0.1], height: '84px', width: '84px' }
+          }}
+          transition={{ repeat: 0, ease: 'easeOut', duration: 0.325 }}
+          className={`${squareClass} left-[28px] top-[28px] z-0 border-white`}
+        />
+        <motion.div
+          variants={{
+            rest: { opacity: 0, height: '128px', width: '128px' },
+            hover: { opacity: [1, 0.4, 0.1], height: '116px', width: '116px' }
+          }}
+          transition={{ repeat: 0, ease: 'easeOut', duration: 0.325 }}
+          className={`${squareClass} left-[12px] top-[12px] z-0 border-white/30`}
+        />
+        <motion.div
+          variants={{
+            rest: { opacity: 0, height: '152px', width: '152px' },
+            hover: { opacity: [1, 0.4, 0.1], height: '140px', width: '140px' }
+          }}
+          transition={{ repeat: 0, ease: 'easeOut', duration: 0.325 }}
+          className={`${squareClass} left-[4px] top-[4px] z-0 border-white/10`}
+        />
+      </motion.div>
+      <motion.div
+        variants={iconBoxVariants}
+        transition={{ repeat: 0, ease: 'easeOut', duration: 0.325 }}
+        className="relative z-10 mb-11 flex h-14 w-14 origin-center items-center justify-center rounded-lg"
+      >
+        <div className="contents">
+          <MotionIcon className="h-full w-full" variants={iconVariants} />
+        </div>
+      </motion.div>
       <div>
-        {title && (
-          <motion.h3
-            variants={titleVariants}
-            className={`${
-              Icon ? 'pb-2' : 'pb-5'
-            } flex flex-row items-center gap-4 pb-2 text-base font-semibold`}
-          >
-            {title}
-          </motion.h3>
-        )}
+        <motion.h3
+          variants={titleVariants}
+          className="flex flex-row items-center gap-4 pb-2 text-base font-semibold"
+        >
+          {title}
+        </motion.h3>
         <motion.p variants={textVariants}>{description}</motion.p>
       </div>
       <motion.div
