@@ -1,43 +1,27 @@
 import { useRef, useState } from 'react';
-import Chip from '../../../components/Chip';
-import Tab from '../../../components/Tab';
-import CRM from '../../../components/icons/CRM';
-import Calculator from '../../../components/icons/Calculator';
-import Diagram from '../../../components/icons/Diagram';
-import Document from '../../../components/icons/Document';
-import Lightning from '../../../components/icons/Lightning';
-import Omni from '../../../components/icons/Omni';
-import PersonCheck from '../../../components/icons/PersonCheck';
-import Stars from 'components/icons/Stars';
-import DisplayCard from './DisplayCard';
 import { motion, useScroll, useSpring, useTransform } from 'framer-motion';
+import Chip from 'components/Chip';
+import Tab from 'components/Tab';
+import Calculator from 'components/icons/Calculator';
+import Diagram from 'components/icons/Diagram';
+import Lightning from 'components/icons/Lightning';
+import Omni from 'components/icons/Omni';
+import PersonCheck from 'components/icons/PersonCheck';
+import Stars from 'components/icons/Stars';
 import Star from 'components/icons/Star';
 import ThumbsUp from 'components/icons/ThumbsUp';
 import { useContainerDimensions } from 'hooks/useContainerDimensions';
+import DisplayCard from './DisplayCard';
 
 export type Solution = keyof typeof cards;
 
 const cards = {
-  crm: {
-    title: 'CRM',
-    description:
-      'Nossa solução revoluciona o atendimento ao cliente com automação avançada, integração de canais e análise de dados, proporcionando uma visão holística. Contrate nosso CRM para eficiência operacional, otimização de processos e satisfação do cliente, impulsionando retenção. Garantimos uma excepcional experiência do cliente.',
-    image: '/img/crm-print.png',
-    icon: CRM
-  },
   'data-driven': {
     title: 'Data-driven',
     description:
       'Nossa abordagem Data-Driven utiliza tecnologias avançadas para transformar dados em insights em tempo real. Com uma plataforma intuitiva, você interpreta seus dados de maneira clara, facilitando decisões estratégicas embasadas. Oferecemos um conjunto abrangente de ferramentas poderosas que garantem precisão nos insights.',
     image: '/img/data-print.png',
     icon: Calculator
-  },
-  formalization: {
-    title: 'Formalização',
-    description:
-      'Automatizamos processos burocráticos, incluindo contratos digitais, BPO e Onboarding, para viabilizar uma operação enxuta. Nossa abrangente solução de BPO facilita a troca segura e prática de informações com os clientes, integrando-se às principais soluções de contrato digital, validações cadastrais, identidade e compliance.',
-    image: '/img/form-print.png',
-    icon: Document
   },
   ai: {
     title: 'Inteligência Artificial',
@@ -73,7 +57,7 @@ export default function SolutionsList() {
   const containerRef = useRef<HTMLDivElement>(null);
   const tabsRef = useRef<HTMLDivElement>(null);
   const { width, scrollWidth } = useContainerDimensions(tabsRef);
-  const [activeTab, setActiveTab] = useState('crm');
+  const [activeTab, setActiveTab] = useState('data-driven');
   const { scrollYProgress } = useScroll({ target: containerRef, offset: ['start center', '25%'] });
   const scale = useTransform(scrollYProgress, [0, 1], [0.96, 1.05]);
   const scaleSpring = useSpring(scale, { damping: 30, stiffness: 100, restDelta: 0.001 });
@@ -119,9 +103,6 @@ export default function SolutionsList() {
         drag="x"
         className="mb-12 flex gap-3  px-4"
       >
-        <Tab currentTab={activeTab} onClick={handleTabClick} value="crm" Icon={cards['crm'].icon}>
-          CRM
-        </Tab>
         <Tab
           currentTab={activeTab}
           onClick={handleTabClick}
@@ -129,14 +110,6 @@ export default function SolutionsList() {
           Icon={cards['data-driven'].icon}
         >
           Data-driven
-        </Tab>
-        <Tab
-          currentTab={activeTab}
-          onClick={handleTabClick}
-          value="formalization"
-          Icon={cards['formalization'].icon}
-        >
-          Formalização
         </Tab>
         <Tab currentTab={activeTab} onClick={handleTabClick} value="ai" Icon={cards['ai'].icon}>
           Inteligência Artificial
