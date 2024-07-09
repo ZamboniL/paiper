@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import Card from 'components/Card';
 import Chip from 'components/Chip';
-import Currency from 'components/icons/Currency';
+import Headset from 'components/icons/Headset';
 import Magnet from 'components/icons/Magnet';
 import Money from 'components/icons/Money';
 import PriceTag from 'components/icons/PriceTag';
@@ -45,9 +45,9 @@ export default function ApplicationList() {
           className="col-span-2"
         />
         <Card
-          Icon={Currency}
-          title="Ativos financeiros"
-          description="Facilidade operacional, negociações efetivas, aquisições/originação de ativos e distribuição de crédito."
+          Icon={Headset}
+          title="Suporte"
+          description="Um sistema de atendimento automatizado 24/7 omnichannel para melhorar a experiência do cliente em todos os canais de comunicação."
           className="col-span-3"
         />
       </div>
