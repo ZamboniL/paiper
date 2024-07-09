@@ -19,17 +19,18 @@ export default function Hero() {
         className="relative z-10 pb-6 text-center text-4xl font-semibold leading-10
       md:mx-auto md:max-w-3xl md:text-5xl"
       >
-        Maximize a produtividade e minimize custos no atendimento ao cliente.
+        Comunicação sob medida.
       </h1>
       <div className="bg-[url('/hero-background.png')] md:bg-none">
-        <h2
+        <p
           className="relative z-10 mb-12 text-center text-base font-normal text-primary-200
         md:mx-auto md:max-w-3xl"
         >
-          Nossa plataforma com tecnologia disruptiva impulsiona a eficiência operacional em larga
-          escala, proporcionando resultados maximizados e transformando a maneira como as empresas
-          se comunicam com seus clientes.
-        </h2>
+          Plataforma com solução completa para a construção de jornadas de atendimento ao cliente.
+          Com canais de comunicação integrados, workflows personalizáveis e inteligência de
+          segmentação, facilitamos a escolha do melhor canal e abordagem para cada cliente,
+          garantindo uma experiência consistente e satisfatória.
+        </p>
         <div ref={containerRef} className="relative m-auto w-fit">
           <motion.img
             drag
